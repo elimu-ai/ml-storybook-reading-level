@@ -4,6 +4,9 @@
 
 This machine learning model is used by the Java [webapp](https://github.com/elimu-ai/webapp) for predicting the reading level of a storybook. The reading level is based on various metrics indicating the books difficulty level, e.g. its total number of words.
 
+> [!IMPORTANT]
+> The webapp where the machine learning model is used us built with Java, so the TensorFlow code needs to export the model in a file format supported by Java web applications.
+
 ## Code Usage
 
 ### 1. Prepare Data
