@@ -18,17 +18,23 @@ The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/res
 > 
 > <kbd>![](https://github.com/user-attachments/assets/e03132e1-f1fd-43ee-acd3-d17929a87639)</kbd>
 
+Python command for preparing the data:
+
 ```python
 TODO
 ```
 
 ### 2. Train Model
 
+Python command for training the model:
+
 ```python
 TODO
 ```
 
 ### 3. Make Prediction
+
+Python command for making a prediction:
 
 ```python
 TODO
