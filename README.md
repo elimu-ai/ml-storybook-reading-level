@@ -11,6 +11,13 @@ This machine learning model is used by the [webapp](https://github.com/elimu-ai/
 
 ### 1. Prepare Data
 
+The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/resources/db/content_PROD/hin/storybooks.csv) dataset contains the paragraphs of each storybook in the `chapters` column, stored in JSON format.
+
+> [!TIP]
+> If you want to explore the storybook chapters in a more readable format, you can copy the data from the `chapters` column into a tool like [JSON Lint](https://jsonlint.com/). Just remember to replace all double-quotes (`""`) with single-quotes (`"`) first.
+> 
+> <kbd>![](https://github.com/user-attachments/assets/e03132e1-f1fd-43ee-acd3-d17929a87639)</kbd>
+
 ```python
 TODO
 ```
