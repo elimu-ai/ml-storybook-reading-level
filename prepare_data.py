@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Select environment (TEST/PROD)
-ENVIRONMENT = "TEST"
+ENVIRONMENT = "PROD"
 
 # Select language
 # See https://github.com/elimu-ai/model/blob/main/src/main/java/ai/elimu/model/v2/enums/Language.java
