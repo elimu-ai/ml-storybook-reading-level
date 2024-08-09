@@ -12,7 +12,11 @@ This machine learning model is used by the [webapp](https://github.com/elimu-ai/
 Prerequisites:
 
 - Install [Python](https://www.python.org/)
-- Install the Python dependencies: `pip install -r requirements.txt`
+- Install the Python dependencies:
+
+  ```python
+  pip install -r requirements.txt
+  ```
 
 ### 1. Prepare Data
 
@@ -26,7 +30,7 @@ The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/res
 Python command for preparing the data:
 
 ```python
-TODO
+python ./prepare_data.py
 ```
 
 ### 2. Train Model
