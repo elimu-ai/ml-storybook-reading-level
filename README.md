@@ -9,6 +9,15 @@ This machine learning model is used by the [webapp](https://github.com/elimu-ai/
 
 ## Code Usage
 
+Prerequisites:
+
+- Install [Python](https://www.python.org/)
+- Install the Python dependencies:
+
+  ```python
+  pip install -r requirements.txt
+  ```
+
 ### 1. Prepare Data
 
 The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/resources/db/content_PROD/hin/storybooks.csv) dataset contains the paragraphs of each storybook in the `chapters` column, stored in JSON format.
@@ -21,7 +30,7 @@ The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/res
 Python command for preparing the data:
 
 ```python
-TODO
+python ./prepare_data.py
 ```
 
 ### 2. Train Model
