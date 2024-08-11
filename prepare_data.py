@@ -1,8 +1,6 @@
 import pandas as pd
 import json
 import re
-import nltk
-nltk.download('punkt_tab')
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import hstack
