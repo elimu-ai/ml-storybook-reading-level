@@ -1,0 +1,7 @@
+pandas==2.2.2
+numpy==2.0.1
+nltk==3.8.2
+pytz==2024.1
+regex==2024.7.24
+scikit-learn==1.5.1
+scipy==1.14.0
