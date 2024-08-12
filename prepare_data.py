@@ -5,6 +5,14 @@ from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import hstack
 from sklearn.preprocessing import LabelEncoder
+import subprocess
+
+# Function to run another Python script
+def run_script(script_name):
+    subprocess.check_call(['python', script_name])
+
+# Call the script to ensure NLTK data is available
+run_script('download_nltk_data.py')
 
 # Select environment (TEST/PROD)
 ENVIRONMENT = "PROD"
