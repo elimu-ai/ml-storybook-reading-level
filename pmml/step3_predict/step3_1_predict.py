@@ -24,6 +24,7 @@ print(os.path.basename(__file__), 'type(predictions_array):\n{}'.format(type(pre
 # Convert from N-dimensional array to DataFrame
 predictions_dataframe = pandas.DataFrame(predictions_array, columns=['reading_level'])
 print(os.path.basename(__file__), 'predictions_dataframe:\n{}'.format(predictions_dataframe))
+print(os.path.basename(__file__), 'type(predictions_dataframe):\n{}'.format(type(predictions_dataframe)))
 
 # Write the DataFrame to a CSV file
 predictions_dataframe.to_csv('step3_1_predictions.csv', index=False)
