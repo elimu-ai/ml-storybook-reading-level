@@ -12,12 +12,12 @@ print(os.path.basename(__file__), 'storybooks_dataframe.columns:\n{}'.format(sto
 
 # Select the prediction target
 y = storybooks_dataframe[['reading_level']]
+print(os.path.basename(__file__), 'type(y): {}'.format(type(y)))
 print(os.path.basename(__file__), 'y:\n{}'.format(y))
 
 # Choose features
-storybook_features = ['id']
-print(os.path.basename(__file__), 'storybook_features: {}'.format(storybook_features))
-X = storybooks_dataframe[storybook_features]
+X = storybooks_dataframe[['id']]
+print(os.path.basename(__file__), 'type(X): {}'.format(type(X)))
 print(os.path.basename(__file__), 'X:\n{}'.format(X))
 
 # Define model
