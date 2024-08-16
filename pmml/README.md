@@ -3,7 +3,7 @@
 ## Code Usage
 
 ```python
-pip install -r requirements
+pip install -r requirements.txt
 ```
 ```python
 python run_all_steps.py
