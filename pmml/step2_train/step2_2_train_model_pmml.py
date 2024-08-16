@@ -31,4 +31,4 @@ reading_level_model.fit(X, y)
 
 # Save model
 print(os.path.basename(__file__), 'Saving model...')
-sklearn2pmml(reading_level_model, 'step2_2_model.pmml', with_repr=False)
+sklearn2pmml(reading_level_model, 'step2_2_model.pmml')
