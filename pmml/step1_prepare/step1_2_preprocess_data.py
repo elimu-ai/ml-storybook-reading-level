@@ -2,7 +2,7 @@ import os
 import pandas
 
 # Read the original storybooks CSV into a DataFrame
-storybooks_csv_path = '../step1_prepare/step1_1_storybooks.csv'
+storybooks_csv_path = 'step1_1_storybooks.csv'
 print(os.path.basename(__file__), 'storybooks_csv_path: {}'.format(storybooks_csv_path))
 storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 
