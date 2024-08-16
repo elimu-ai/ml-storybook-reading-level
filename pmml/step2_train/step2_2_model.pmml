@@ -2,11 +2,8 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
 		<Application name="SkLearn2PMML package" version="0.110.0"/>
-		<Timestamp>2024-08-16T12:06:28Z</Timestamp>
+		<Timestamp>2024-08-16T12:24:59Z</Timestamp>
 	</Header>
-	<MiningBuildTask>
-		<Extension name="repr">PMMLPipeline(steps=[('regressor', DecisionTreeRegressor(random_state=1))])</Extension>
-	</MiningBuildTask>
 	<DataDictionary>
 		<DataField name="reading_level" optype="continuous" dataType="double"/>
 		<DataField name="id" optype="continuous" dataType="float"/>
