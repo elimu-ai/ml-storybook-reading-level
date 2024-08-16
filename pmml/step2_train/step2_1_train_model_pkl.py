@@ -21,12 +21,15 @@ X = storybooks_dataframe[storybook_features]
 print(os.path.basename(__file__), 'X:\n{}'.format(X))
 
 # Define model
+print(os.path.basename(__file__), 'Defining model...')
 reading_level_model = DecisionTreeRegressor(random_state=1)
 print(os.path.basename(__file__), 'reading_level_model: {}'.format(reading_level_model))
 
 # Fit model
+print(os.path.basename(__file__), 'Fitting model...')
 reading_level_model.fit(X, y)
 
 # Save model
+print(os.path.basename(__file__), 'Saving model...')
 with open('step2_1_model.pkl', 'wb') as file:
     pickle.dump(reading_level_model, file, protocol=5)
