@@ -11,7 +11,7 @@ print(os.path.basename(__file__), 'storybooks_dataframe:\n{}'.format(storybooks_
 print(os.path.basename(__file__), 'storybooks_dataframe.columns:\n{}'.format(storybooks_dataframe.columns))
 
 # Select the prediction target
-y = storybooks_dataframe['reading_level']
+y = storybooks_dataframe[['reading_level']]
 print(os.path.basename(__file__), 'y:\n{}'.format(y))
 
 # Choose features
@@ -22,7 +22,7 @@ print(os.path.basename(__file__), 'X:\n{}'.format(X))
 
 # Define model
 reading_level_model = DecisionTreeRegressor(random_state=1)
-print(os.path.basename(__file__), 'reading_level_model:\n{}'.format(reading_level_model))
+print(os.path.basename(__file__), 'reading_level_model: {}'.format(reading_level_model))
 
 # Fit model
 reading_level_model.fit(X, y)

@@ -2,7 +2,7 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
 		<Application name="SkLearn2PMML package" version="0.110.0"/>
-		<Timestamp>2024-08-16T08:38:56Z</Timestamp>
+		<Timestamp>2024-08-16T11:45:44Z</Timestamp>
 	</Header>
 	<MiningBuildTask>
 		<Extension name="repr">PMMLPipeline(steps=[('regressor', DecisionTreeRegressor(random_state=1))])</Extension>
