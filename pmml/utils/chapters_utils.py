@@ -1,4 +1,4 @@
-import os
+from os.path import basename
 
 '''json
 [
@@ -8,7 +8,7 @@ import os
     },
     "sortOrder": 0,
     "id": 99,
-    "storyBookParagraphs": [
+        "storyBookParagraphs": [
       {
         "originalText": "Earth is the planet that we live on. Currently no other planet is known to contain life.",
         "sortOrder": 0,
@@ -47,7 +47,17 @@ import os
 ]
 '''
 def get_chapter_count(chapters_json):
-    print(os.path.basename(__file__), "get_chapter_count")
+    print(basename(__file__), 'get_chapter_count')
     chapter_count = len(chapters_json)
-    print(os.path.basename(__file__), "chapter_count: {}".format(chapter_count))
+    print(basename(__file__), f'chapter_count: {chapter_count}')
     return chapter_count
+
+def get_paragraph_count(chapters_json):
+    print(basename(__file__), 'get_paragraph_count')
+    paragraph_count = 0
+    for chapter in chapters_json:
+        print(basename(__file__), f'chapter["sortOrder"]: {chapter["sortOrder"]}')
+        for paragraph in chapter["storyBookParagraphs"]:
+            print(basename(__file__), f'paragraph: {paragraph}')
+            paragraph_count += 1
+    return paragraph_count
