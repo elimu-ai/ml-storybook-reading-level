@@ -16,7 +16,7 @@ storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 print(os.path.basename(__file__), 'storybooks_dataframe:\n{}'.format(storybooks_dataframe))
 
 # Predict
-storybook_features = ['id']
+storybook_features = ['id', 'chapter_count']
 predictions = reading_level_model.predict(storybooks_dataframe[storybook_features])
 print(os.path.basename(__file__), 'predictions:\n{}'.format(predictions))
 print(os.path.basename(__file__), 'type(predictions):\n{}'.format(type(predictions)))
