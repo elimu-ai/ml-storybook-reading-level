@@ -13,13 +13,13 @@ print(os.path.basename(__file__), 'reading_level_model: {}'.format(reading_level
 storybooks_csv_path = 'step3_1_storybooks_test.csv'
 print(os.path.basename(__file__), 'storybooks_csv_path: {}'.format(storybooks_csv_path))
 storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
-print(os.path.basename(__file__), 'storybooks_dataframe:\n{}'.format(storybooks_dataframe))
+print(os.path.basename(__file__), 'storybooks_dataframe:  \n{}'.format(storybooks_dataframe))
 
 # Predict
-storybook_features = ['id', 'chapter_count', 'paragraph_count']
+storybook_features = ['chapter_count', 'paragraph_count']
 predictions = reading_level_model.predict(storybooks_dataframe[storybook_features])
-print(os.path.basename(__file__), 'predictions:\n{}'.format(predictions))
-print(os.path.basename(__file__), 'type(predictions):\n{}'.format(type(predictions)))
+print(os.path.basename(__file__), 'predictions:  \n{}'.format(predictions))
+print(os.path.basename(__file__), 'type(predictions):  \n{}'.format(type(predictions)))
 
 # Write the DataFrame to a CSV file
 predictions.to_csv('step3_2_predictions.csv', index=False)
