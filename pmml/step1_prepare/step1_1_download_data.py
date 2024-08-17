@@ -3,7 +3,7 @@ import pandas
 
 # Read the storybooks CSV into a DataFrame
 storybooks_csv_url = ('https://raw.githubusercontent.com/elimu-ai/webapp/main/src/main/resources/db/content_PROD'
-                          '/eng/storybooks.csv')
+                          '/hin/storybooks.csv')
 print(os.path.basename(__file__), 'storybooks_csv_url: {}'.format(storybooks_csv_url))
 storybooks_dataframe = pandas.read_csv(storybooks_csv_url)
 print(os.path.basename(__file__), 'storybooks_dataframe:\n{}'.format(storybooks_dataframe))
