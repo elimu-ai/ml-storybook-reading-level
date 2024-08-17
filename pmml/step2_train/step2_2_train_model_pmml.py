@@ -3,8 +3,8 @@ import pandas
 from sklearn.tree import DecisionTreeRegressor
 from sklearn2pmml import PMMLPipeline, sklearn2pmml
 
-# Read the preprocessed storybooks CSV into a DataFrame
-storybooks_csv_path = '../step1_prepare/step1_2_storybooks.csv'
+# Read the preprocessed training data CSV into a DataFrame
+storybooks_csv_path = '../step1_prepare/step1_3_storybooks_train.csv'
 print(os.path.basename(__file__), 'storybooks_csv_path: {}'.format(storybooks_csv_path))
 storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 print(os.path.basename(__file__), 'storybooks_dataframe:\n{}'.format(storybooks_dataframe))

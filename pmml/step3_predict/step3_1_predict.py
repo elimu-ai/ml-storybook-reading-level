@@ -9,8 +9,8 @@ with open(model_pkl_path, 'rb') as file:
     reading_level_model = pickle.load(file)
 print(os.path.basename(__file__), 'reading_level_model: {}'.format(reading_level_model))
 
-# Load test data
-storybooks_csv_path = 'step3_1_storybooks_test.csv'
+# Read the preprocessed training data CSV into a DataFrame
+storybooks_csv_path = '../step1_prepare/step1_3_storybooks_test.csv'
 print(os.path.basename(__file__), 'storybooks_csv_path: {}'.format(storybooks_csv_path))
 storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 print(os.path.basename(__file__), 'storybooks_dataframe:\n{}'.format(storybooks_dataframe))
