@@ -15,6 +15,7 @@ storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 # For each row in the DataFrame, extract information from the JSON string stored in the `chapters` column
 storybooks_dataframe['chapter_count'] = 0
 storybooks_dataframe['paragraph_count'] = 0
+storybooks_dataframe['word_count'] = 0
 for index in storybooks_dataframe.index:
     print(basename(__file__), f'index: {index}')
     chapters = storybooks_dataframe.loc[index]['chapters']
@@ -25,10 +26,13 @@ for index in storybooks_dataframe.index:
 
     paragraph_count = chapters_utils.get_paragraph_count(chapters_json)
     storybooks_dataframe.loc[index, 'paragraph_count'] = paragraph_count
+
+    word_count = chapters_utils.get_word_count(chapters_json)
+    storybooks_dataframe.loc[index, 'word_count'] = word_count
 print(basename(__file__), f'storybooks_dataframe (after extracting data from `chapters` column): \n{storybooks_dataframe}')
 
 # Drop unnecessary columns
-storybooks_dataframe = storybooks_dataframe[['id', 'reading_level', 'chapter_count', 'paragraph_count']]
+storybooks_dataframe = storybooks_dataframe[['id', 'reading_level', 'chapter_count', 'paragraph_count', 'word_count']]
 print(basename(__file__), f'storybooks_dataframe (after dropping unnecessary columns): \n{storybooks_dataframe}')
 
 # Drop missing values

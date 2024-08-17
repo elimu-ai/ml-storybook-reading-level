@@ -61,3 +61,15 @@ def get_paragraph_count(chapters_json):
             print(basename(__file__), f'paragraph: {paragraph}')
             paragraph_count += 1
     return paragraph_count
+
+def get_word_count(chapters_json):
+    print(basename(__file__), 'get_word_count')
+    word_count = 0
+    for chapter in chapters_json:
+        print(basename(__file__), f'chapter["sortOrder"]: {chapter["sortOrder"]}')
+        for paragraph in chapter["storyBookParagraphs"]:
+            print(basename(__file__), f'paragraph: {paragraph}')
+            words = paragraph["originalText"].split()
+            print(basename(__file__), f'words: {words}')
+            word_count += len(words)
+    return word_count
