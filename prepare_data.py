@@ -6,13 +6,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import hstack
 from sklearn.preprocessing import LabelEncoder
 import subprocess
+import download_nltk_data
 
-# Function to run another Python script
-def run_script(script_name):
-    subprocess.check_call(['python', script_name])
-
-# Call the script to ensure NLTK data is available
-run_script('download_nltk_data.py')
+# Call the function to ensure NLTK data is available
+download_nltk_data.download_nltk_data()
 
 # Select environment (TEST/PROD)
 ENVIRONMENT = "PROD"
