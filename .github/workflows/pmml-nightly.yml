@@ -24,6 +24,10 @@ jobs:
     - name: Run All Steps (1-3)
       run: |
         python run_all_steps.py
+    - name: Git Config
+      run: |
+        git config user.name 'Nya Ξlimu'
+        git config user.email 'info@elimu.ai'
     - name: Git Commit
       run: |
         git add step1_prepare/*
