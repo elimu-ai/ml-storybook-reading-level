@@ -30,9 +30,10 @@ jobs:
         git config user.email 'info@elimu.ai'
     - name: Git Commit
       run: |
-        git add step1_prepare/*
-        git add step2_train/*
-        git add step3_predict/*
+        git add step1_prepare/*.csv
+        git add step2_train/*.pmml
+        git add step3_predict/*.csv
+        git add step3_predict/*.txt
         git commit -m 'chore(ml): nightly build'
     - name: Git Push
       run: |
