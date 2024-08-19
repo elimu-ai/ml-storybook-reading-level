@@ -2,8 +2,7 @@ name: Python application (PMML, Nightly Build)
 
 on:
   schedule:
-#    - cron: 00 03 * * *
-    - cron: 00 * * * *
+  - cron: 00 03 * * *
 
 jobs:
   build:
