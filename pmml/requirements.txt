@@ -1,0 +1,5 @@
+numpy==1.26.4
+pandas==2.2.2
+pypmml==0.9.17
+scikit-learn==1.5.0
+sklearn2pmml==0.110.0

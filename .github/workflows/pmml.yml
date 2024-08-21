@@ -1,4 +1,4 @@
-name: Python application
+name: Python application (PMML)
 
 on:
   push:
@@ -14,7 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11"]
+    defaults:
+      run:
+          working-directory: pmml
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
@@ -35,6 +38,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: 1. Prepare Data
+    - name: Run All Steps (1-3)
       run: |
-        python ./prepare_data.py
+        python run_all_steps.py
