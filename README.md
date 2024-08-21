@@ -30,7 +30,7 @@ The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/res
 Python command for preparing the data:
 
 ```python
-python ./prepare_data.py
+python prepare_data.py
 ```
 
 ### 2. Train Model
