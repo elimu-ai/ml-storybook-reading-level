@@ -12,41 +12,37 @@ This machine learning model is used by the [webapp](https://github.com/elimu-ai/
 Prerequisites:
 
 - Install [Python](https://www.python.org/)
-- Install the Python dependencies:
 
-  ```python
-  pip install -r requirements.txt
-  ```
+### Working directory
 
-### 1. Prepare Data
+Change your working directory to [`pmml`](./pmml):
 
-The [`storybooks.csv`](https://github.com/elimu-ai/webapp/blob/main/src/main/resources/db/content_PROD/hin/storybooks.csv) dataset contains the paragraphs of each storybook in the `chapters` column, stored in JSON format.
-
-> [!TIP]
-> If you want to explore the storybook chapters in a more readable format, you can copy the data from the `chapters` column into a tool like [JSON Lint](https://jsonlint.com/). Just remember to replace all double-quotes (`""`) with single-quotes (`"`) first.
-> 
-> <kbd>![](https://github.com/user-attachments/assets/e03132e1-f1fd-43ee-acd3-d17929a87639)</kbd>
-
-Python command for preparing the data:
-
-```python
-python ./prepare_data.py
+```bash
+cd pmml
 ```
 
-### 2. Train Model
+### Dependencies
 
-Python command for training the model:
+Install the Python dependencies:
 
-```python
-TODO
+```bash
+pip install -r requirements.txt
 ```
 
-### 3. Make Prediction
+### Test
 
-Python command for making a prediction:
+Run the unit tests:
 
-```python
-TODO
+```bash
+pytest
+```
+
+### Run
+
+Run all steps (1-3):
+
+```bash
+python run_all_steps.py
 ```
 
 ---
