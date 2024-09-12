@@ -1,4 +1,5 @@
 from os.path import basename
+import string
 
 '''json
 [
@@ -73,3 +74,26 @@ def get_word_count(chapters_json):
             print(basename(__file__), f'words: {words}')
             word_count += len(words)
     return word_count
+
+def get_avg_word_length(chapters_json):
+    print(basename(__file__), 'get_word_count')
+    word_count = 0
+    total_word_length = 0
+    for chapter in chapters_json:
+        print(basename(__file__), f'chapter["sortOrder"]: {chapter["sortOrder"]}')
+        for paragraph in chapter["storyBookParagraphs"]:
+            print(basename(__file__), f'paragraph: {paragraph}')
+            words = paragraph["originalText"].split()
+            print(basename(__file__), f'words: {words}')
+            word_count += len(words)
+            for word in words:
+                print(basename(__file__), f'word: {word}')
+                word_cleaned = word.translate(str.maketrans('', '', string.punctuation))
+                print(basename(__file__), f'word_cleaned: {word_cleaned}')
+                total_word_length += len(word_cleaned)
+    print(basename(__file__), f'word_count: {word_count}')
+    print(basename(__file__), f'total_word_length: {total_word_length}')
+    if (word_count == 0):
+        return 0
+    else:
+        return total_word_length / word_count
