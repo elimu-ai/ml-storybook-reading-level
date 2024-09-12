@@ -30,6 +30,7 @@ jobs:
     - name: Git Commit
       run: |
         git add step1_prepare/*.csv
+        git add step1_prepare/*.png
         git add step2_train/*.pmml
         git add step3_predict/*.csv
         git add step3_predict/*.txt
