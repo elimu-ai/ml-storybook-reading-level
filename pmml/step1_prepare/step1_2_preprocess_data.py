@@ -16,6 +16,7 @@ storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 storybooks_dataframe['chapter_count'] = 0
 storybooks_dataframe['paragraph_count'] = 0
 storybooks_dataframe['word_count'] = 0
+storybooks_dataframe['avg_word_length'] = 0
 for index in storybooks_dataframe.index:
     print(basename(__file__), f'index: {index}')
     chapters = storybooks_dataframe.loc[index]['chapters']
@@ -29,10 +30,13 @@ for index in storybooks_dataframe.index:
 
     word_count = chapters_utils.get_word_count(chapters_json)
     storybooks_dataframe.loc[index, 'word_count'] = word_count
+
+    avg_word_length = chapters_utils.get_avg_word_length(chapters_json)
+    storybooks_dataframe.loc[index, 'avg_word_length'] = avg_word_length
 print(basename(__file__), f'storybooks_dataframe (after extracting data from `chapters` column): \n{storybooks_dataframe}')
 
 # Drop unnecessary columns
-storybooks_dataframe = storybooks_dataframe[['id', 'reading_level', 'chapter_count', 'paragraph_count', 'word_count']]
+storybooks_dataframe = storybooks_dataframe[['id', 'reading_level', 'chapter_count', 'paragraph_count', 'word_count', 'avg_word_length']]
 print(basename(__file__), f'storybooks_dataframe (after dropping unnecessary columns): \n{storybooks_dataframe}')
 
 # Drop missing values
