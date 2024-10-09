@@ -23,3 +23,6 @@
 ![](./step1_4_avg_word_length_scatter.png)
 
 ![](./step1_4_avg_word_length_hist.png)
+
+Testing normalising data:
+3 variations of training data normalisation were tested to see if model accuracy would improve: min-max scaling, standard scaling (z-score) and robust scaling. Findings showed that the model results did not change with such implementations.
