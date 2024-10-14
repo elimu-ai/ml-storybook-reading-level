@@ -41,3 +41,37 @@ jobs:
     - name: Run All Steps (1-3)
       run: |
         python run_all_steps.py
+
+    - name: Run tests
+      run: |
+        python utils/metrics_test.py
+
+     shell: bash
+      run: |
+        accuracy=$(grep -Po 'accuracy_score: \K[0-9.]+' Metrics_output.txt)
+        mae=$(grep -Po 'MAE: \K[0-9.]+' Metrics_output.txt)
+        echo "Accuracy: $accuracy"
+        echo "MAE: $mae"
+        echo "::set-output name=accuracy::$accuracy"
+        echo "::set-output name=mae::$mae"
+
+    - name: Post results to PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const accuracy = "${{ steps.compute_metrics.outputs.accuracy }}";
+          const mae = "${{ steps.compute_metrics.outputs.mae }}";
+          const body = `
+          ### Metrics from latest run:
+          - **Accuracy**: ${accuracy}
+          - **MAE**: ${mae}
+          `;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: body
+          });
+          
