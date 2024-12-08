@@ -45,6 +45,14 @@ print(basename(__file__), f'storybooks_dataframe (after dropping missing values)
 
 # Extract number from reading level (e.g. 'LEVEL1' --> '1')
 storybooks_dataframe['reading_level'] = storybooks_dataframe['reading_level'].str.extract('(\\d+)')
+
+# Convert 'reading_level' into dummy variables
+storybooks_dataframe = pandas.concat(
+    [storybooks_dataframe.drop(columns=['reading_level']),  # Drop the original reading_level column
+     pandas.get_dummies(storybooks_dataframe['reading_level'], prefix='reading_level')],  # Add dummy columns
+    axis=1
+)
+
 print(basename(__file__), f'storybooks_dataframe (after converting texts to numbers): \n{storybooks_dataframe}')
 
 # Write the DataFrame to a CSV file
