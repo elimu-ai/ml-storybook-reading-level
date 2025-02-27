@@ -4,3 +4,4 @@ pandas==2.2.3
 pypmml==1.5.5
 scikit-learn==1.5.0
 sklearn2pmml==0.113.0
+seaborn==0.13.2
