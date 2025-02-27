@@ -13,7 +13,6 @@ for label in storybooks_dataframe.columns[2:]:
     print(f'label: {label}')
 
     # Scatter plot with regression line and confidence interval
-    pyplot.figure(figsize=(8, 6))
     sns.regplot(x=storybooks_dataframe['reading_level'], 
                 y=storybooks_dataframe[label], 
                 scatter_kws={'alpha': 0.5},  # Transparency for scatter points
