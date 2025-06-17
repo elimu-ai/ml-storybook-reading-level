@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
-		<Application name="SkLearn2PMML package" version="0.118.0"/>
-		<Timestamp>2025-06-16T10:42:36Z</Timestamp>
+		<Application name="SkLearn2PMML package" version="0.119.0"/>
+		<Timestamp>2025-06-17T10:41:36Z</Timestamp>
 	</Header>
 	<DataDictionary>
 		<DataField name="reading_level" optype="continuous" dataType="double"/>
-		<DataField name="chapter_count" optype="continuous" dataType="float"/>
 		<DataField name="paragraph_count" optype="continuous" dataType="float"/>
 		<DataField name="word_count" optype="continuous" dataType="float"/>
 	</DataDictionary>
@@ -15,7 +14,6 @@
 			<MiningField name="reading_level" usageType="target"/>
 			<MiningField name="word_count"/>
 			<MiningField name="paragraph_count"/>
-			<MiningField name="chapter_count"/>
 		</MiningSchema>
 		<LocalTransformations>
 			<DerivedField name="double(word_count)" optype="continuous" dataType="double">
@@ -24,40 +22,34 @@
 			<DerivedField name="double(paragraph_count)" optype="continuous" dataType="double">
 				<FieldRef field="paragraph_count"/>
 			</DerivedField>
-			<DerivedField name="double(chapter_count)" optype="continuous" dataType="double">
-				<FieldRef field="chapter_count"/>
-			</DerivedField>
 		</LocalTransformations>
 		<Node score="4.0">
 			<True/>
-			<Node score="2.0">
+			<Node score="1.0">
 				<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="319.0"/>
 				<Node score="1.0">
-					<SimplePredicate field="double(paragraph_count)" operator="lessOrEqual" value="22.5"/>
+					<SimplePredicate field="double(paragraph_count)" operator="lessOrEqual" value="21.5"/>
 					<Node score="1.0">
 						<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="127.0"/>
 					</Node>
 					<Node score="2.0">
-						<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="135.5"/>
+						<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="137.5"/>
 					</Node>
 				</Node>
 				<Node score="2.0">
-					<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="111.5"/>
+					<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="186.0"/>
 				</Node>
 				<Node score="1.0">
-					<SimplePredicate field="double(chapter_count)" operator="lessOrEqual" value="16.0"/>
-					<Node score="1.0">
-						<SimplePredicate field="double(paragraph_count)" operator="lessOrEqual" value="24.0"/>
-						<Node score="2.0">
-							<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="234.5"/>
-						</Node>
-					</Node>
+					<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="210.0"/>
+				</Node>
+				<Node score="2.0">
+					<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="234.5"/>
 				</Node>
 			</Node>
 			<Node score="2.0">
 				<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="521.5"/>
 				<Node score="3.0">
-					<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="383.5"/>
+					<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="386.0"/>
 				</Node>
 			</Node>
 			<Node score="3.0">
@@ -65,7 +57,7 @@
 				<Node score="3.0">
 					<SimplePredicate field="double(paragraph_count)" operator="lessOrEqual" value="40.0"/>
 					<Node score="4.0">
-						<SimplePredicate field="double(chapter_count)" operator="lessOrEqual" value="11.0"/>
+						<SimplePredicate field="double(word_count)" operator="lessOrEqual" value="559.5"/>
 					</Node>
 				</Node>
 				<Node score="2.0">
