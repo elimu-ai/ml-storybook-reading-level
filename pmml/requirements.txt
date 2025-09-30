@@ -1,6 +1,6 @@
 matplotlib==3.9.4
 numpy==2.0.2
-pandas==2.3.2
+pandas==2.3.3
 pypmml==1.5.7
 scikit-learn==1.6.1
 sklearn2pmml==0.122.2
