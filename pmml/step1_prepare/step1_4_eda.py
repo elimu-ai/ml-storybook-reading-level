@@ -16,7 +16,7 @@ for label in storybooks_dataframe.columns[2:]:
     sns.regplot(x=storybooks_dataframe['reading_level'], 
                 y=storybooks_dataframe[label], 
                 scatter_kws={'alpha': 0.5},  # Transparency for scatter points
-                line_kws={'color': 'red'})  # Regression line color
+                line_kws={'color': 'purple'})  # Regression line color
     
     # Labels and saving
     pyplot.xlabel('reading_level')
