@@ -2,6 +2,8 @@
 
 > 🤖📚 Machine learning model which predicts the reading level of a storybook.
 
+[![](./pmml/step1_prepare/step1_4_chapter_count_scatter_with_regression.png)](./pmml/step1_prepare/README.md)
+
 This machine learning model is used by the [webapp](https://github.com/elimu-ai/webapp) for predicting the [reading level](https://github.com/elimu-ai/model/blob/main/src/main/java/ai/elimu/model/v2/enums/ReadingLevel.java) of a storybook. The reading level is based on various metrics indicating the books difficulty level, e.g. its total number of words.
 
 > [!IMPORTANT]
