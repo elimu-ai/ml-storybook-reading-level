@@ -29,7 +29,13 @@ def test_validate_accuracy_score_rejects_non_finite_scores():
             validate_accuracy_score(value)
 
 
+def test_validate_accuracy_score_rejects_bool_scores():
+    for value in (True, False):
+        with pytest.raises(ValueError, match='finite number'):
+            validate_accuracy_score(value)
+
+
 def test_validate_accuracy_score_rejects_scores_outside_unit_range():
     for value in (-0.1, 1.1):
-        with pytest.raises(ValueError, match='between 0.0000 and 1.0000'):
+        with pytest.raises(ValueError, match=r'between 0\.0000 and 1\.0000'):
             validate_accuracy_score(value)
