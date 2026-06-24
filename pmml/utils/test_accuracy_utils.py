@@ -2,8 +2,12 @@ import math
 
 import pytest
 
-from utils.accuracy_utils import MIN_ACCURACY_SCORE
-from utils.accuracy_utils import validate_accuracy_score
+try:
+    from utils.accuracy_utils import MIN_ACCURACY_SCORE
+    from utils.accuracy_utils import validate_accuracy_score
+except ModuleNotFoundError:
+    from accuracy_utils import MIN_ACCURACY_SCORE
+    from accuracy_utils import validate_accuracy_score
 
 
 def test_validate_accuracy_score_accepts_scores_at_threshold():
