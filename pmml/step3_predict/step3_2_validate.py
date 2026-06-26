@@ -3,6 +3,7 @@ import pandas
 from pypmml import Model
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import accuracy_score
+from utils.accuracy_utils import validate_accuracy_score
 
 # Load Predictive Model Markup Language (PMML) model
 model_pmml_path = '../step2_train/step2_2_model.pmml'
@@ -37,6 +38,7 @@ with open('step3_2_mean_absolute_error.txt', 'w') as file:
 # Calculate the accuracy score
 accuracy_score = accuracy_score(val_y, val_predictions)
 print(basename(__file__), f'accuracy_score: {accuracy_score}')
+validate_accuracy_score(accuracy_score)
 
 # Write the accuracy score to a text file
 with open('step3_2_accuracy_score.txt', 'w') as file:
