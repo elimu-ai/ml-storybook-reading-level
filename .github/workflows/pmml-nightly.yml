@@ -3,6 +3,7 @@ name: Python application (PMML, Nightly Build)
 on:
   schedule:
     - cron: 22 10 * * *
+  workflow_dispatch:
 
 jobs:
   build:
