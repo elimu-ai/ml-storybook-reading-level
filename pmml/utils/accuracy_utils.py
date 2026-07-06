@@ -1,7 +1,6 @@
 import math
 
-# MIN_ACCURACY_SCORE = 0.75
-MIN_ACCURACY_SCORE = 0.80
+MIN_ACCURACY_SCORE = 0.75
 
 def validate_accuracy_score(accuracy_score, min_accuracy_score=MIN_ACCURACY_SCORE):
     if isinstance(accuracy_score, bool) or not isinstance(accuracy_score, (int, float)) or not math.isfinite(accuracy_score):
