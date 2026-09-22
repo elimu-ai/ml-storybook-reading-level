@@ -9,7 +9,7 @@ import string
     },
     "sortOrder": 0,
     "id": 99,
-        "storyBookParagraphs": [
+    "storyBookParagraphs": [
       {
         "originalText": "Earth is the planet that we live on. Currently no other planet is known to contain life.",
         "sortOrder": 0,
@@ -47,11 +47,14 @@ import string
   }
 ]
 '''
+
+
 def get_chapter_count(chapters_json):
     print(basename(__file__), 'get_chapter_count')
     chapter_count = len(chapters_json)
     print(basename(__file__), f'chapter_count: {chapter_count}')
     return chapter_count
+
 
 def get_paragraph_count(chapters_json):
     print(basename(__file__), 'get_paragraph_count')
@@ -62,6 +65,7 @@ def get_paragraph_count(chapters_json):
             print(basename(__file__), f'paragraph: {paragraph}')
             paragraph_count += 1
     return paragraph_count
+
 
 def get_word_count(chapters_json):
     print(basename(__file__), 'get_word_count')
@@ -74,6 +78,7 @@ def get_word_count(chapters_json):
             print(basename(__file__), f'words: {words}')
             word_count += len(words)
     return word_count
+
 
 def get_avg_word_length(chapters_json):
     print(basename(__file__), 'get_word_count')
@@ -97,3 +102,14 @@ def get_avg_word_length(chapters_json):
         return 0
     else:
         return total_word_length / word_count
+
+
+def get_avg_word_count_per_chapter(chapters_json):
+    print(basename(__file__), 'get_avg_word_count_per_chapter')
+    chapter_count = get_chapter_count(chapters_json)
+    word_count = get_word_count(chapters_json)
+
+    if chapter_count == 0:
+        return 0
+    else:
+        return word_count / chapter_count

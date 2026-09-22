@@ -16,7 +16,9 @@ print(os.path.basename(__file__), 'type(y): {}'.format(type(y)))
 print(os.path.basename(__file__), 'y:\n{}'.format(y))
 
 # Choose features
-X = storybooks_dataframe[['chapter_count', 'paragraph_count', 'word_count']]
+X = storybooks_dataframe[
+    ['chapter_count', 'paragraph_count', 'word_count', 'avg_word_count_per_chapter']
+]
 print(os.path.basename(__file__), 'type(X): {}'.format(type(X)))
 print(os.path.basename(__file__), 'X:\n{}'.format(X))
 
@@ -33,3 +35,4 @@ reading_level_model.fit(X, y)
 print(os.path.basename(__file__), 'Saving model...')
 with open('step2_1_model.pkl', 'wb') as file:
     pickle.dump(reading_level_model, file, protocol=5)
+
