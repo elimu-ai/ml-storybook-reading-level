@@ -17,6 +17,8 @@ storybooks_dataframe['chapter_count'] = 0
 storybooks_dataframe['paragraph_count'] = 0
 storybooks_dataframe['word_count'] = 0
 storybooks_dataframe['avg_word_length'] = 0
+storybooks_dataframe['avg_word_count_per_chapter'] = 0
+
 for index in storybooks_dataframe.index:
     print(basename(__file__), f'index: {index}')
     chapters = storybooks_dataframe.loc[index]['chapters']
@@ -33,10 +35,24 @@ for index in storybooks_dataframe.index:
 
     avg_word_length = chapters_utils.get_avg_word_length(chapters_json)
     storybooks_dataframe.loc[index, 'avg_word_length'] = avg_word_length
+
+    avg_word_count_per_chapter = chapters_utils.get_avg_word_count_per_chapter(chapters_json)
+    storybooks_dataframe.loc[index, 'avg_word_count_per_chapter'] = avg_word_count_per_chapter
+
 print(basename(__file__), f'storybooks_dataframe (after extracting data from `chapters` column): \n{storybooks_dataframe}')
 
 # Drop unnecessary columns
-storybooks_dataframe = storybooks_dataframe[['id', 'reading_level', 'chapter_count', 'paragraph_count', 'word_count', 'avg_word_length']]
+storybooks_dataframe = storybooks_dataframe[
+    [
+        'id',
+        'reading_level',
+        'chapter_count',
+        'paragraph_count',
+        'word_count',
+        'avg_word_length',
+        'avg_word_count_per_chapter'
+    ]
+]
 print(basename(__file__), f'storybooks_dataframe (after dropping unnecessary columns): \n{storybooks_dataframe}')
 
 # Drop missing values
@@ -49,3 +65,4 @@ print(basename(__file__), f'storybooks_dataframe (after converting texts to numb
 
 # Write the DataFrame to a CSV file
 storybooks_dataframe.to_csv('step1_2_storybooks.csv', index=False)
+
