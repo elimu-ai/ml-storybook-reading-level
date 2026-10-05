@@ -38,8 +38,10 @@ with open('step3_2_mean_absolute_error.txt', 'w') as file:
 # Calculate the accuracy score
 accuracy_score = accuracy_score(val_y, val_predictions)
 print(basename(__file__), f'accuracy_score: {accuracy_score}')
-validate_accuracy_score(accuracy_score)
 
 # Write the accuracy score to a text file
 with open('step3_2_accuracy_score.txt', 'w') as file:
     file.write(str(accuracy_score))
+
+# Ensure that the accuracy score meets the minimum required threshold
+validate_accuracy_score(accuracy_score)
