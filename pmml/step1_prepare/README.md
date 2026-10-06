@@ -17,9 +17,3 @@
 ![](./step1_4_word_count_scatter_with_regression.png)
 
 ![](./step1_4_word_count_hist.png)
-
-## `avg_word_length`
-
-![](./step1_4_avg_word_length_scatter_with_regression.png)
-
-![](./step1_4_avg_word_length_hist.png)
