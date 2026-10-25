@@ -2,7 +2,7 @@ numpy
 matplotlib
 pandas
 pypmml
-scikit-learn
+scikit-learn==1.9.0
 sklearn2pmml
 seaborn
 textstat
