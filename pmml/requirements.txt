@@ -5,3 +5,4 @@ pypmml
 scikit-learn
 sklearn2pmml
 seaborn
+textstat
