@@ -7,8 +7,15 @@ storybooks_csv_path = 'step1_2_storybooks.csv'
 print(basename(__file__), f'storybooks_csv_path: {storybooks_csv_path}')
 storybooks_dataframe = pandas.read_csv(storybooks_csv_path)
 
-# Split the data into training and validation data
-X = storybooks_dataframe[['id', 'chapter_count', 'paragraph_count', 'word_count']]
+# Split the data into training and validation data (Updated to include additional text complexity metrics)
+X = storybooks_dataframe[[
+    'id', 
+    'chapter_count', 
+    'paragraph_count', 
+    'word_count', 
+    'flesch_kincaid_grade', 
+    'lexile_score'
+]]
 y = storybooks_dataframe[['reading_level']]
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.2, random_state=0)
 print(basename(__file__), f'train_X: \n{train_X}')

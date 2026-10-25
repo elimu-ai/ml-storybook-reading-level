@@ -1,7 +1,7 @@
-matplotlib==3.9.4
-numpy==2.0.2
-pandas==2.3.3
-pypmml==1.5.7
-scikit-learn==1.6.1
-sklearn2pmml==0.130.0
-seaborn==0.13.2
+numpy
+matplotlib
+pandas
+pypmml
+scikit-learn
+sklearn2pmml
+seaborn

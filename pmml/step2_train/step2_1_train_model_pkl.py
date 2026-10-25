@@ -15,8 +15,14 @@ y = storybooks_dataframe[['reading_level']]
 print(os.path.basename(__file__), 'type(y): {}'.format(type(y)))
 print(os.path.basename(__file__), 'y:\n{}'.format(y))
 
-# Choose features
-X = storybooks_dataframe[['chapter_count', 'paragraph_count', 'word_count']]
+# Choose features (Updated to include additional text complexity metrics)
+X = storybooks_dataframe[[
+    'chapter_count', 
+    'paragraph_count', 
+    'word_count', 
+    'flesch_kincaid_grade', 
+    'lexile_score'
+]]
 print(os.path.basename(__file__), 'type(X): {}'.format(type(X)))
 print(os.path.basename(__file__), 'X:\n{}'.format(X))
 
