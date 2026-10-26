@@ -50,8 +50,7 @@ for index in storybooks_dataframe.index:
                         paragraphs.append(paragraph['text'])
         full_text = " ".join(paragraphs)
     except Exception:
-        # Fallback to string representation if JSON structure varies
-        full_text = str(chapters_json)
+        full_text = ""        
 
     # Calculate metrics only if text is valid and words exist
     if full_text.strip() and word_count > 0:
