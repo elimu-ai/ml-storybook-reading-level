@@ -75,25 +75,32 @@ def get_word_count(chapters_json):
             word_count += len(words)
     return word_count
 
-def get_avg_word_length(chapters_json):
-    print(basename(__file__), 'get_word_count')
-    word_count = 0
-    total_word_length = 0
+def get_avg_sentence_length(chapters_json):
+    """Calculate the average number of words per sentence across all paragraphs.
+    
+    Sentences are identified by ending punctuation (. ! ?). If a paragraph has
+    words but no ending punctuation, it is treated as a single sentence.
+    Returns 0.0 if there are no sentences.
+    """
+    print(basename(__file__), 'get_avg_sentence_length')
+    total_words = 0
+    total_sentences = 0
+    sentence_endings = set('.!?')
     for chapter in chapters_json:
         print(basename(__file__), f'chapter["sortOrder"]: {chapter["sortOrder"]}')
         for paragraph in chapter["storyBookParagraphs"]:
             print(basename(__file__), f'paragraph: {paragraph}')
-            words = paragraph["originalText"].split()
-            print(basename(__file__), f'words: {words}')
-            word_count += len(words)
-            for word in words:
-                print(basename(__file__), f'word: {word}')
-                word_cleaned = word.translate(str.maketrans('', '', string.punctuation))
-                print(basename(__file__), f'word_cleaned: {word_cleaned}')
-                total_word_length += len(word_cleaned)
-    print(basename(__file__), f'word_count: {word_count}')
-    print(basename(__file__), f'total_word_length: {total_word_length}')
-    if (word_count == 0):
-        return 0
-    else:
-        return total_word_length / word_count
+            text = paragraph["originalText"]
+            words = text.split()
+            word_count = len(words)
+            total_words += word_count
+            # Count sentence-ending punctuation
+            sentence_count = sum(1 for char in text if char in sentence_endings)
+            if sentence_count == 0 and word_count > 0:
+                sentence_count = 1
+            total_sentences += sentence_count
+    if total_sentences == 0:
+        return 0.0
+    avg = total_words / total_sentences
+    print(basename(__file__), f'avg_sentence_length: {avg}')
+    return avg
