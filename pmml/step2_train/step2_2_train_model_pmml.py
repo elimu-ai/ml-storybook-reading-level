@@ -16,7 +16,7 @@ print(os.path.basename(__file__), 'type(y): {}'.format(type(y)))
 print(os.path.basename(__file__), 'y:\n{}'.format(y))
 
 # Choose features
-X = storybooks_dataframe[['chapter_count', 'paragraph_count', 'word_count']]
+X = storybooks_dataframe[['chapter_count', 'paragraph_count', 'word_count', 'avg_sentence_length']]
 print(os.path.basename(__file__), 'type(X): {}'.format(type(X)))
 print(os.path.basename(__file__), 'X:\n{}'.format(X))
 
