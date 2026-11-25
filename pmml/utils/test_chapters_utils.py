@@ -80,3 +80,33 @@ def test_get_word_count_when_multiple_paragraphs():
     paragraph_count = chapters_utils.get_word_count(chapters_json)
 
     assert paragraph_count == 232
+
+def test_get_sentence_count_when_no_paragraphs():
+    chapters_json = [{"image":{"id":1},"sortOrder":0,"id":1,"storyBookParagraphs":[]}]
+
+    assert chapters_utils.get_sentence_count(chapters_json) == 0
+
+def test_get_sentence_count_counts_latin_and_devanagari_endings():
+    chapters_json = [{"image":{"id":1},"sortOrder":0,"id":1,"storyBookParagraphs":[
+        {"originalText":"One day it rained. Was it cold? Yes!","sortOrder":0,"id":1},
+        {"originalText":"\u092f\u0939 \u090f\u0915 \u0915\u0939\u093e\u0928\u0940 \u0939\u0948\u0964 \u092f\u0939 \u0926\u0942\u0938\u0930\u0940 \u0939\u0948\u0964","sortOrder":1,"id":2}]}]
+
+    assert chapters_utils.get_sentence_count(chapters_json) == 5
+
+def test_get_sentence_count_ignores_repeated_punctuation_and_trailing_text():
+    chapters_json = [{"image":{"id":1},"sortOrder":0,"id":1,"storyBookParagraphs":[
+        {"originalText":"Wait... what?! No punctuation at the end","sortOrder":0,"id":1}]}]
+
+    assert chapters_utils.get_sentence_count(chapters_json) == 3
+
+def test_get_avg_sentence_length():
+    chapters_json = [{"image":{"id":1},"sortOrder":0,"id":1,"storyBookParagraphs":[
+        {"originalText":"The cat sat. The dog barked loudly.","sortOrder":0,"id":1}]}]
+
+    # 7 words in 2 sentences
+    assert chapters_utils.get_avg_sentence_length(chapters_json) == 3.5
+
+def test_get_avg_sentence_length_when_no_sentences():
+    chapters_json = [{"image":{"id":1},"sortOrder":0,"id":1,"storyBookParagraphs":[]}]
+
+    assert chapters_utils.get_avg_sentence_length(chapters_json) == 0
