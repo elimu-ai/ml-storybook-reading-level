@@ -1,4 +1,5 @@
 from os.path import basename
+import re
 import string
 
 '''json
@@ -74,3 +75,26 @@ def get_word_count(chapters_json):
             print(basename(__file__), f'words: {words}')
             word_count += len(words)
     return word_count
+
+# Sentence-ending punctuation: Latin (. ! ?) and the Devanagari danda (\u0964)
+SENTENCE_SPLIT_PATTERN = re.compile(r'[.!?\u0964]+')
+
+def get_sentence_count(chapters_json):
+    print(basename(__file__), 'get_sentence_count')
+    sentence_count = 0
+    for chapter in chapters_json:
+        for paragraph in chapter["storyBookParagraphs"]:
+            # Count the non-empty pieces between sentence-ending punctuation marks
+            pieces = SENTENCE_SPLIT_PATTERN.split(paragraph["originalText"])
+            sentence_count += sum(1 for piece in pieces if piece.strip())
+    print(basename(__file__), f'sentence_count: {sentence_count}')
+    return sentence_count
+
+def get_avg_sentence_length(chapters_json):
+    print(basename(__file__), 'get_avg_sentence_length')
+    sentence_count = get_sentence_count(chapters_json)
+    if sentence_count == 0:
+        return 0
+    avg_sentence_length = get_word_count(chapters_json) / sentence_count
+    print(basename(__file__), f'avg_sentence_length: {avg_sentence_length}')
+    return avg_sentence_length
